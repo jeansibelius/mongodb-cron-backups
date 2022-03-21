@@ -6,7 +6,7 @@ Tool to create MongoDB backups from your MongoDB Atlas database through commandl
 
 1. Clone the repository to a location of your choosing.
 2. Create a symlink in a folder included in your PATH (e.g. bin) for easing running of the script:
-  - `ln -s <PATH_TO_SCRIPT> /home/$USER/bin/<NAME_OF_YOUR_CHOOSING e.g. mongobackup>`
+  1. `ln -s <PATH_TO_SCRIPT> /home/$USER/bin/<NAME_OF_YOUR_CHOOSING e.g. mongobackup>`
 3. Copy the `example_config` to a file called `config` and edit your MongoDB Atlas details in. Be
    careful not to commit your private details to any repository.
 
