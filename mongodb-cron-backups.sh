@@ -37,7 +37,10 @@ create_backup(){
 
 help(){
   printf \
-    "This is the help file.\n"
+"
+  \e[1;33mTool to create MongoDB backups from your MongoDB Atlas database through commandline allowing CRON scheduling.\e[m
+
+"
   exit
 }
 
