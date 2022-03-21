@@ -1,7 +1,11 @@
-MONGODB_USR="your_mongodb_user"
-MONGODB_PWSD="your_mongodb_user_password"
-# Names of the DBs you want to backup split by semicolon
-MONGODB_DB_NAMES="first_db;second_db"
+MONGODB_USR="your_mongodb_atlas_db_user"
+MONGODB_PASSWORD="your_mongodb_atlas_db_user_password"
+
+# Array of DB names that you want to backup separated with a space
+MONGODB_DB_NAMES="first_db second_db"
 MONGODB_CLUSTER="address_to_your_cluster_e.g._project.plpgm.mongodb.net"
+
+# If you want to save to a custom location, uncomment the line below and change path as desired
+# Default location: /home/$USER/MONGODB_DUMP/
 #CUSTOM_OUTPUT_PATH="/home/$USER/CUSTOM_FOLDER"
 
