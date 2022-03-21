@@ -1,6 +1,7 @@
-MONGODB_USR="YOUR_MONGODB_USER"
-MONGODB_PWSD="YOUR_MONGODB_USER_PASSWORD"
-MONGODB_DB_NAME="THE_NAME_OF_THE_DB_YOU_WANT_TO_BACKUP"
-MONGODB_CLUSTER="ADDRESS_TO_YOUR_CLUSTER_E.G._PROJECT.plpgm.mongodb.net"
+MONGODB_USR="your_mongodb_user"
+MONGODB_PWSD="your_mongodb_user_password"
+# Names of the DBs you want to backup split by semicolon
+MONGODB_DB_NAMES="first_db;second_db"
+MONGODB_CLUSTER="address_to_your_cluster_e.g._project.plpgm.mongodb.net"
 #CUSTOM_OUTPUT_PATH="/home/$USER/CUSTOM_FOLDER"
 
