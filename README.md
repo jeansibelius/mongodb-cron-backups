@@ -11,6 +11,10 @@ Tool to create MongoDB backups from your MongoDB Atlas database through commandl
    script) and edit your MongoDB Atlas details in. Be
    careful not to commit your private details to any repository.
 
+## Requirements 
+- `mongodump` from [mongodb-database-tools](https://www.mongodb.com/try/download/database-tools)
+- A `config` file as detailed above.
+
 ## How to run
 To see all the available options, run the script in terminal with the `mongobackup help` argument to see options.
 
