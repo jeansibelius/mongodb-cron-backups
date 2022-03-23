@@ -20,25 +20,40 @@ DB_NAMES="$MONGODB_DB_NAMES"
 OUTPUT_PATH="${CUSTOM_OUTPUT_PATH:-"/home/$USER/MONGODB_DUMP/"}"
 
 # Create backup
-# If backup size is zero, log error?
 create_backup(){
   mkdir -p $OUTPUT_PATH && cd $OUTPUT_PATH
-  echo "\n${pbold}Creating a backup of $CONNECTION using mongodump in $OUTPUT_PATH${pclear}\n" 
+  START_MESSAGE="Creating a backup of $CONNECTION using mongodump in $OUTPUT_PATH"
+  echo "\n${pbold}$START_MESSAGE${pclear}"
+  logger $START_MESSAGE
 
   START=$(date +%s)
+  TOTAL_SIZE="0"
 
   # Loop through DBs to backup
   for db in $DB_NAMES; do
-    echo "${pbold}Backing up $db...${pclear}"
+    echo "\n${pbold}Backing up $db...${pclear}"
+    
     URI="mongodb+srv://$USR:$PSWD@$CONNECTION/$db"
-    mongodump --archive="$( date +%Y-%m-%d-%H-%M-%S ).$db" --uri=$URI
-    echo
+    FILENAME="$( date +%Y-%m-%d-%H-%M-%S ).$db.archive.gz"
+    mongodump --archive=$FILENAME --gzip --uri=$URI
+
+    SIZE=$(stat --printf="%s" "$FILENAME") 
+    TOTAL_SIZE=$(( $TOTAL_SIZE + $SIZE))
+    if [ $SIZE -gt "0" ]; then
+      echo "\n > Created $FILENAME, size $SIZE B"
+    else
+      # If backup size is zero, log error
+      ERROR_MESSAGE="Possible problem: $FILENAME size was zero $SIZE B)"
+      logger -s $ERROR_MESSAGE
+    fi
   done
 
   END=$(date +%s)
   TIME=$(($END - $START))
   
-  printf "\n${pbold}Done${pclear} ("$TIME" s)\n" 
+  END_MESSAGE="Backups created for $CONNECTION (took "$TIME" s, total size $TOTAL_SIZE B)"
+  printf "\n${pbold}$END_MESSAGE${pclear}\n\n"
+  logger $END_MESSAGE
 }
 
 # Delete old backups?
