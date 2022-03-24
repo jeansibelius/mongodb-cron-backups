@@ -9,3 +9,5 @@ MONGODB_CLUSTER="address_to_your_cluster_e.g._project.plpgm.mongodb.net"
 # Default location: /home/$USER/MONGODB_DUMP/
 #CUSTOM_OUTPUT_PATH="/home/$USER/CUSTOM_FOLDER"
 
+# Number of days of backups you want to retain (default: 7)
+#RETAIN_LAST_X_DAYS_BACKUPS="7"
