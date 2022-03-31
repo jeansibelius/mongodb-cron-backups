@@ -22,7 +22,7 @@ DB_NAMES="$MONGODB_DB_NAMES"
 OUTPUT_PATH="$LOCAL_OUTPUT_PATH"
 
 # Options for cron scheduling
-CRONCMD="env USER=$USER ${SCRIPTPATH} create_and_delete > ${BASEDIR}/mongobackup.log 2>&1"
+CRONCMD="${SCRIPTPATH} create_and_delete > ${BASEDIR}/mongobackup.log 2>&1"
 CRONSCHEDULE="${CRON_SCHEDULE:-"0 0 * * *"}"
 CRONJOB="$CRONSCHEDULE $CRONCMD"
 

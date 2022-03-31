@@ -21,3 +21,4 @@ To see all the available options, run the script in terminal with the `mongoback
 
 **Basic usage:**
 - After setting up your `config` file, you can just run `mongobackup create` to have the tool create a DB dump in $USER/MONGODB_DUMP.
+- To see available commands, run `mongobackup help`.
