@@ -5,9 +5,9 @@ MONGODB_PASSWORD="your_mongodb_atlas_db_user_password"
 MONGODB_DB_NAMES="first_db second_db"
 MONGODB_CLUSTER="address_to_your_cluster_e.g._project.plpgm.mongodb.net"
 
-# If you want to save to a custom location, uncomment the line below and change path as desired
-# Default location: /home/$USER/MONGODB_DUMP/
-#CUSTOM_OUTPUT_PATH="/home/$USER/CUSTOM_FOLDER"
+# Folder where the backups should be saved
+# Make sure the cron job has the permissions to write to the specified path
+LOCAL_OUTPUT_PATH=""
 
 # Number of days of backups you want to retain (default: 7)
 #RETAIN_LAST_X_DAYS_BACKUPS="7"
